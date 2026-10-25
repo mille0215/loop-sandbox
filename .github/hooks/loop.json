@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "type": "command",
+        "command": "node scripts/hooks/reset-counter.mjs",
+        "timeout": 10
+      }
+    ],
+    "PreToolUse": [
+      {
+        "type": "command",
+        "command": "node scripts/hooks/pre-tool-guard.mjs",
+        "timeout": 10
+      }
+    ],
+    "Stop": [
+      {
+        "type": "command",
+        "command": "node scripts/hooks/stop-gate.mjs",
+        "timeout": 300
+      }
+    ]
+  }
+}

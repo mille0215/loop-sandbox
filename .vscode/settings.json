@@ -1,0 +1,22 @@
+{
+  // --- カスタマイズファイルを読み込む ---
+  "chat.useHooks": true,                    // .github/hooks/*.json のフックを有効化（信頼済みワークスペースが必要）
+  "chat.useCustomAgentHooks": true,         // エージェント単位のフック（今回は未使用だが将来用）
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true, // copilot-instructions.md を適用
+
+  // --- 無人で周回させるためのターミナル自動承認 ---
+  // 検証コマンド・ループ用スクリプト・読み取り系だけ自動承認し、それ以外は毎回確認させる。
+  // verify を npm test 以外にしたら、ここも合わせて変更する。
+  "chat.tools.terminal.autoApprove": {
+    "npm test": true,
+    "npm run lint": true,
+    "node scripts/loop/start.mjs": true,
+    "node scripts/loop/checkpoint.mjs": true,
+    "node scripts/loop/snapshot.mjs": true,
+    "git status": true,
+    "git diff": true,
+    "/^git\\s+push/": false,
+    "rm": false,
+    "Remove-Item": false
+  }
+}

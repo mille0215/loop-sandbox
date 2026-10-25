@@ -1,0 +1,26 @@
+{
+  "verify": "npm test",
+  "maxIterations": 5,
+  "maxToolCalls": 150,
+  "verifyTimeoutSec": 240,
+  "staleHours": 12,
+  "requireReview": true,
+  "checkpointCommits": true,
+  "protectedPaths": [
+    "package.json",
+    "package-lock.json",
+    "pnpm-lock.yaml",
+    "yarn.lock",
+    "jest.config.*",
+    "vitest.config.*",
+    "vitest.workspace.*",
+    "playwright.config.*",
+    "karma.conf.*",
+    ".mocharc.*",
+    "pytest.ini",
+    "tox.ini",
+    "*.runsettings",
+    "**/__snapshots__/**",
+    "tests/**"
+  ]
+}
